@@ -1,17 +1,18 @@
 from flight_search import FlightSearch
+
 class FlightData:
 
     @staticmethod
     def check_flights_prices(google_sheet_data, flights_api_data, google_sheet_lowest_prices):
+        notification_list = []
         for index in range(0, len(google_sheet_data)):
             if google_sheet_lowest_prices[index] > flights_api_data[index]:
-                print('Cheaper flight found!\n'
-                      f'Flight to: {google_sheet_data[index].city}\n'
-                      f'For: {flights_api_data[index]}€ '
-                      f'({google_sheet_data[index].lowest_price - flights_api_data[index]}'
-                      f'€ cheaper!)\n')
-            else:
-                print('Meh.')
+                notification_message = (f'Flight to: {google_sheet_data[index].city}\n'
+                                        f'For: {flights_api_data[index]}€ '
+                                        f'({google_sheet_data[index].lowest_price - flights_api_data[index]}'
+                                        f'€ cheaper!)\n\n')
+                notification_list.append(notification_message)
+        return notification_list
 
     @staticmethod
     def get_data_from_API(google_sheet_data) -> list:
@@ -29,4 +30,3 @@ class FlightData:
             google_sheet_lowest_prices.append(price.lowest_price)
 
         return google_sheet_lowest_prices
-
