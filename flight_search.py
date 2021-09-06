@@ -1,7 +1,7 @@
 import requests
+from env import TEQUILA_API_KEY
 
-TEQUILA_API_KEY = 'uwxxlYpCHNKC6ea4zPotBPlvBgZM5YMV'
-TEQUILA_ENDPOINT = ''
+TEQUILA_ENDPOINT = 'https://tequila-api.kiwi.com/v2/search'
 
 headers = {
     'apikey': TEQUILA_API_KEY
@@ -20,7 +20,6 @@ class FlightSearch:
             'adults': 1
         }
 
-        response = requests.get(url='https://tequila-api.kiwi.com/v2/search'
-                                , headers=headers, params=params).json()
+        response = requests.get(url=TEQUILA_ENDPOINT, headers=headers, params=params).json()
 
         return response
