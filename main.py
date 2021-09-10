@@ -2,7 +2,9 @@ from data_manager import GoogleSheetDataManager, GoogleSheetDataRow
 from flight_data import FlightData
 from notification_manager import NotificationManager
 from receivers_manager import ReceiversManager
+from date_manager import DateManager
 
+DateManager.get_starting_date()
 
 def get_google_sheet_rows():
     google_sheet_rows_to_return = []
