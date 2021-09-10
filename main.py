@@ -11,21 +11,21 @@ def get_google_sheet_rows():
         google_sheet_rows_to_return.append(record)
     return google_sheet_rows_to_return
 
+
 def get_receivers():
     receivers_data = []
     for row in ReceiversManager.get_receivers_data():
-        new_receiver = ReceiversManager(
-            row[0],
-            row[1],
-            row[2])
+        new_receiver = ReceiversManager.create_row_from_raw_data(row)
         receivers_data.append(new_receiver)
     return receivers_data
+
 
 def send_emails_to_receivers(receivers):
     for receiver in receivers:
         message = NotificationManager.create_message(receiver.name, notification_list)
         NotificationManager.send_email_notification(message, receiver.email)
         print(f'Sent email to {receiver.name}!')
+
 
 def send_emails():
     receivers = get_receivers()

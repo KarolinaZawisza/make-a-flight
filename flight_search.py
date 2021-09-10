@@ -7,6 +7,7 @@ headers = {
     'apikey': TEQUILA_API_KEY
 }
 
+
 class FlightSearch:
 
     @staticmethod

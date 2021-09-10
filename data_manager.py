@@ -2,12 +2,14 @@ import requests
 
 SHEETY_GET = 'https://api.sheety.co/916caf070298948fcad5db9c85a2358c/flightDeals/prices'
 
+
 class GoogleSheetDataManager:
 
     @staticmethod
     def get_data_from_sheet():
         response = requests.get(url=SHEETY_GET).json()['prices']
         return response
+
 
 class GoogleSheetDataRow:
 

@@ -1,5 +1,6 @@
 from flight_search import FlightSearch
 
+
 class FlightData:
 
     @staticmethod

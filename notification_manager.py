@@ -1,6 +1,7 @@
 import smtplib
 from env import MAIN_EMAIL, MAIN_EMAIL_PASSWORD
 
+
 class NotificationManager:
 
     @staticmethod

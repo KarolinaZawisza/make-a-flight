@@ -1,5 +1,6 @@
 import pandas as pd
 
+
 class ReceiversManager:
 
     def __init__(self, name, surname, email):
@@ -12,3 +13,10 @@ class ReceiversManager:
         data_frame = pd.read_csv('receivers_data.csv')
         receivers_data = data_frame.values.tolist()
         return receivers_data
+
+    @staticmethod
+    def create_row_from_raw_data(row):
+        return ReceiversManager(
+            name=row[0],
+            surname=row[1],
+            email=row[2])
