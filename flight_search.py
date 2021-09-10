@@ -1,4 +1,6 @@
 import requests
+
+from date_manager import DateManager
 from env import TEQUILA_API_KEY
 
 TEQUILA_ENDPOINT = 'https://tequila-api.kiwi.com/v2/search'
@@ -16,8 +18,8 @@ class FlightSearch:
         params = {
             'fly_from': 'WRO',
             'fly_to': city_code,
-            'date_from': '06/09/2021',
-            'date_to': '13/09/2021',
+            'date_from': DateManager.get_starting_date(),
+            'date_to': DateManager.get_ending_date(),
             'adults': 1
         }
 
